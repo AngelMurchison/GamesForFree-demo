@@ -1,0 +1,28 @@
+<h1>Video Games</h1>
+
+<p *ngIf="!videoGames"><em>Loading...</em></p>
+
+<table class='table' *ngIf="videoGames">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Release Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let videoGame of videoGames">
+      <td>{{ videoGame.title }}</td>
+      <td>{{ videoGame.price }}</td>
+      <td>{{ videoGame.releaseDate }}</td>
+      <td>{{ videoGame.description }}</td>
+    </tr>
+
+    <tr *ngIf="videoGames.length === 0">
+      <td colspan="4">
+        Nothing came back :/ Please ensure that the database has been seeded.
+      </td>
+    </tr>
+  </tbody>
+</table>

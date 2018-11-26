@@ -1,0 +1,96 @@
+<h1>Create your account</h1>
+
+<form (ngSubmit)="registerNewUser()" #registrationForm="ngForm">
+  <span class="row">
+    <label class="col-sm-2"
+           for="email">
+      Email*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.email"
+           name="email"
+           type="email"
+           autocomplete="false"
+           autofocus
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="firstName">
+      First Name*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.firstName"
+           name="firstName"
+           type="text"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="lastName">
+      Last Name*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.lastName"
+           name="lastName"
+           type="text"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="userName">
+      User Name*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.userName"
+           name="userName"
+           type="text"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="password">
+      Password*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.password"
+           name="password"
+           type="password"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="password">
+      Confirm Password*
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="registerModel.confirmPassword"
+           name="password"
+           type="password"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row" *ngIf="reconfirmPassword && !confirmEmail">
+    <span class="col-sm-6">Sorry, your passwords don't look the same..</span>
+  </span>
+  <span class="row" *ngIf="!reconfirmPassword && confirmEmail">
+    <span class="col-sm-6">Sorry, your email doesn't look quite right..</span>
+  </span>
+  <span class="row" *ngIf="confirmEmail && reconfirmPassword">
+    <span class="col-sm-6">Sorry, your passwords don't look the same.. and your email seems strange as well.</span>
+  </span>
+  <span class="row">
+    <span class="col-sm-2">* Required</span>
+  </span>
+  <span class="row">
+    <button type="submit"
+            class="btn btn-success"
+            [disabled]="!registrationForm.form.valid">
+      Register
+    </button>
+  </span>
+</form>

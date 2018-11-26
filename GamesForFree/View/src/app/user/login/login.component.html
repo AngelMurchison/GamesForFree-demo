@@ -1,0 +1,36 @@
+<h1>Login</h1>
+
+<form (ngSubmit)="login()" #loginForm="ngForm" class="center-block" style="margin-top: auto; margin-bottom: auto;">
+  <span class="row">
+    <label class="col-sm-2"
+           for="userName">
+      Username
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="loginModel.userName"
+           name="userName"
+           type="text"
+           autocomplete="false"
+           autofocus
+           required />
+  </span>
+  <span class="row">
+    <label class="col-sm-2"
+           for="password">
+      Password
+    </label>
+    <input class="col-sm-4"
+           [(ngModel)]="loginModel.password"
+           name="password"
+           type="password"
+           autocomplete="false"
+           required />
+  </span>
+  <span class="row">
+    <button type="submit"
+            class="btn btn-success"
+            [disabled]="!loginForm.form.valid">
+      Login
+    </button>
+  </span>
+</form>

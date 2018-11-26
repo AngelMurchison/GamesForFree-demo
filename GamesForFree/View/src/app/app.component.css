@@ -1,0 +1,14 @@
+@media (max-width: 767px) {
+  /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
+  .body-content {
+    padding-top: 50px;
+  }
+
+  .ng-valid[required], .ng-valid.required {
+    border: 1px solid #42A948; /* green */
+  }
+
+  .ng-invalid:not(form) {
+    border: 1px solid #a94442; /* red */
+  }
+}
