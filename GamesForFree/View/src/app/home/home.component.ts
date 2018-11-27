@@ -35,6 +35,17 @@ export class HomeComponent {
 
   }
 
+  addTransactions() {
+    this.http.get(this.baseUrl + 'Seed/SeedTransactions').subscribe(
+      () => {
+        console.log('Successfully seeded the database.')
+      },
+      (err) => {
+        console.log(err)
+      }
+    );
+  }
+
   getGames() {
     let typedVideoGames = []
     let games: any = gamesList

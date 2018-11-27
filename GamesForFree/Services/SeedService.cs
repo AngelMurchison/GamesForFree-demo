@@ -11,6 +11,7 @@ namespace GamesForFree.Services
     public interface ISeedService
     {
         List<VideoGame> SeedFrom(IList<VideoGameViewModel> videoGames);
+		void SeedTransactions();
     }
 
     public class SeedService : ISeedService
@@ -35,7 +36,7 @@ namespace GamesForFree.Services
 						Title = game.Title,
 						AvailableForPurchase = true,
 						Description = game.Description,
-						Price = new Random().Next(4000, 6000) / 1000.00m
+						Price = new Random().Next(4000, 6000) / 100.00m
 					};
 
 					var existingGame = _unitOfWork.videoGameRepository.All.FirstOrDefault(g => g.Title == entity.Title);
@@ -104,6 +105,25 @@ namespace GamesForFree.Services
 			return games;
 
 
+		}
+
+		public void SeedTransactions()
+		{
+			var games = _unitOfWork.videoGameRepository.All.ToList();
+			var user = _unitOfWork.userRepository.All.FirstOrDefault();
+
+			foreach (var game in games)
+			{
+				var newTransaction = new Transaction()
+				{
+					CustomerId = user.Id,
+					GamePointsExchanged = new Random().Next(4000, 6000) / 1000.00m,
+					VideoGameId = game.Id
+				};
+
+				_unitOfWork.transactionRepository.Create(newTransaction);
+				_unitOfWork.Commit();
+			}
 		}
 
     }

@@ -13,8 +13,10 @@ namespace GamesForFree.Data
         IRepository<VideoGame> videoGameRepository { get; }
         IRepository<Company> companyRepository { get; }
         IRepository<User> userRepository { get; }
+		IRepository<Transaction> transactionRepository { get; }
 
-        void RejectChanges();
+
+		void RejectChanges();
         void Dispose();
         void Commit();
     }
@@ -35,7 +37,10 @@ namespace GamesForFree.Data
         public IRepository<User> userRepository =>
             new GenericRepository<User>(_databaseContext);
 
-        public UnitOfWork(GamesForFreeDbContext dbContext)
+		public IRepository<Transaction> transactionRepository =>
+			new GenericRepository<Transaction>(_databaseContext);
+
+		public UnitOfWork(GamesForFreeDbContext dbContext)
         {
             _databaseContext = dbContext;
         }

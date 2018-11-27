@@ -27,5 +27,12 @@ namespace GamesForFree.Controllers
             return Ok();
         }
 
+		[HttpGet]
+		public ActionResult SeedTransactions()
+		{
+			_seedService.SeedTransactions();
+			return Ok();
+		}
+
     }
 }

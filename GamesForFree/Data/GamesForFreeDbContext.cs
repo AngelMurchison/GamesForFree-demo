@@ -14,10 +14,10 @@ namespace GamesForFree.Data
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<CompanyVideoGame> CompanyVideoGame { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite(@"Filename=./GamesForFree.sqlite");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite(@"Filename=./GamesForFree.sqlite");
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
