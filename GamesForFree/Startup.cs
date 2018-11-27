@@ -40,8 +40,8 @@ namespace GamesForFree
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddDbContext<GamesForFreeDbContext>(options =>
-                 options.UseSqlite(
-					@"Filename=./Data/GamesForFree.sqlite"));
+                 options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             

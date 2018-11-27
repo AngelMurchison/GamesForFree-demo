@@ -16,7 +16,7 @@ namespace GamesForFree.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Filename=./GamesForFree.sqlite");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-1DQHDIP\SQLEXPRESS;Database=GamesForFree;Trusted_Connection=True;MultipleActiveResultSets=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
